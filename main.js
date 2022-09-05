@@ -24,3 +24,7 @@ function checkSupported() {
 function move(){
 
 }
+
+function pelaa() {
+    document.getElementById("pelinappi").style.display = "none";
+}
