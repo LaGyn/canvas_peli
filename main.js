@@ -5,7 +5,7 @@ canvas.fillStyle = "orange";
 canvas.fill();
 
 ctx.beginPath();
-ctx.arc(30,30, 30, 0, Math.PI * 2);
+ctx.arc(30,30, 15, 0, Math.PI * 2);
 ctx.fillStyle = 'red';
 ctx.fill();
 ctx.closePath();
