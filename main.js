@@ -5,7 +5,7 @@ canvas.fillStyle = "orange";
 ctx.fill();
 
 document.addEventListener('keydown', liiku)
-
+/*
 function checkSupported() {
     if (canvas.getContext){
       ctx = canvas.getContext('2d');
@@ -14,8 +14,8 @@ function checkSupported() {
       // Canvas is not supported
       alert("We're sorry, but your browser does not support the canvas tag. Please use any web browser other than Internet Explorer.");
     }
-  } 
-
+  } */
+let raf;
 const mato = {
     x: 15,
     y: 15,
@@ -33,6 +33,14 @@ const mato = {
 }
 
 // Madon liikkuminen:
+
+function draw(){
+    ctx.clearRect(0,0, canvas.width,canvas.height);
+    mato.draw();
+    mato.x += mato.nopeusX;
+    mato.y += mato.nopeusY;
+    raf = window.requestAnimationFrame(draw);
+}
 
 function liiku(event){
     if (event.keyCode == 39){ // Nuoli oikealle
