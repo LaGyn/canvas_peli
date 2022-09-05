@@ -46,3 +46,13 @@ canvas {
 h1 {
     font-size: 2em;
 }
+
+#pisteruutu {
+    width: 800px;
+    text-align: right;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2em;
+    margin-right: 1em;
+    margin-top: .2em;
+
+}

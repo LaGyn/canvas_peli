@@ -50,6 +50,7 @@ function liiku(event){
 function pelaa() {
     document.getElementById("pelinappi").style.display = "none";
     document.getElementById("aloitus").style.display = "none";
+    document.getElementById("pisteruutu").style.display = "block";
     luoRuokaPallo();
     mato.draw();
 }
@@ -74,4 +75,8 @@ function luoRuokaPallo() {
 
 function onPiste(element, index, array) {
   return (element[0] == suggestedPoint[0] && element[1] == suggestedPoint[1]);
+}
+
+function onSyonytItsensa() {
+  return(element[0] == currentPosition['x'] && element[1] == currentPosition['y']);
 }

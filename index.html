@@ -15,6 +15,7 @@
     <section id="content">
         <h1>Matopeli</h1>
         <canvas id="canvas" width="800" height="600"></canvas>
+        <div id="pisteruutu" style="display:none">Pisteet: <span id="pisteetNyt"></span></div>
         <div id="aloitus">
             <h2>Tervetuloa pelaamaan matopeliä!</h2>
             <h2>Peli on Canvas API ryhmäprojekti.</h2>
@@ -22,7 +23,7 @@
         </div>
         <div id="lopetus" style="display:none">
             <h2>Peli ohi!</h2>
-            <h2>Keräsit <span id="pisteet"></span> pistettä.</h2>
+            <h2>Keräsit <span id="pisteetLopussa"></span> pistettä.</h2>
         </div>
         <button id="pelinappi" type="button" onclick="pelaa()" style="display:block">Pelaa</button>
     </section>
