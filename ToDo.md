@@ -3,4 +3,4 @@
 3. Liikkuminen -Laura
 4. Rajat, törmäys -Laura
 5. Madon kasvu; syöminen -Juho
-6. 
+6. Alkunäyttö, loppunäyttö; -Juho
