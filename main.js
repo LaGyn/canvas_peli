@@ -5,7 +5,7 @@ this.gridSize = 30;
 madonBody = [];
 ctx.fill();
 
-canvas.addEventListener('keydown', draw)
+document.addEventListener('keydown', liiku)
 
 function checkSupported() {
     if (!canvas.getContext){
@@ -30,21 +30,21 @@ const mato = {
 }
 
 // Madon liikkuminen:
-
+/*
 function draw(){
-    ctx.clearRect(0,0,canvas.width, canvas.height);
+    //ctx.clearRect(0,0,canvas.width, canvas.height);
     mato.draw();
     mato.x += mato.nopeusX;
     mato.y += mato.nopeusY;
-}
+}*/
   
-/*
 function liiku(event){
+    mato.draw();
     if (event.keyCode == 39){ // Nuoli oikealle
-        this.x += this.nopeusX;
+        mato.x += mato.nopeusX;
     }
 
-}*/
+}
 
 function pelaa() {
     document.getElementById("pelinappi").style.display = "none";
