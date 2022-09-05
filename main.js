@@ -16,33 +16,21 @@ function checkSupported() {
     }
   } 
 
-class Mato {
-   constructor({sijainti, vauhti, suunta}){
-        this.sijainti = sijainti;
-        this.vauhti = vauhti;
-        this.suunta = suunta;
-    }
+const mato = {
+    x: 15,
+    y: 15,
+    nopeusX: 5,
+    nopeusY: 5,
+    radius: 15,
+    color: 'red',
     draw(){
-    ctx.beginPath();
-    ctx.arc(15, 15, 15, 0, Math.PI * 2);
-    ctx.fillStyle = 'red';
-    ctx.fill();
-    ctx.closePath();
-    }
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();
+        }
 }
-
-const mato = new Mato({
-    sijainti: {
-        x: 15,
-        y: 15
-    },
-    suunta: {
-        x: 1,
-        y: 1
-    },
-    vauhti: 5,
-    
-})
 
 // Madon liikkuminen:
 
