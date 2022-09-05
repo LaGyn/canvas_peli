@@ -1,5 +1,6 @@
+const canvas = document.getElementById('canvas');
+
 function checkSupported() {
-    canvas = document.getElementById('canvas');
     if (canvas.getContext){
       ctx = canvas.getContext('2d');
       // Canvas is supported
@@ -8,3 +9,9 @@ function checkSupported() {
       alert("We're sorry, but your browser does not support the canvas tag. Please use any web browser other than Internet Explorer.");
     }
   }
+
+// Madon liikkuminen:
+
+function move(){
+
+}
