@@ -36,4 +36,5 @@ function move(){
 
 function pelaa() {
     document.getElementById("pelinappi").style.display = "none";
+    document.getElementById("aloitus").style.display = "none";
 }
