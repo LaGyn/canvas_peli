@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(100, 100, 100);
+    background-color: rgb(211, 254, 255);
     overflow-x: hidden;
     overflow-y: auto;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -7,7 +7,7 @@ body {
 
 canvas {
     border: solid 10px rgb(5, 141, 0);
-    background:rgb(199, 145, 45) ;
+    background:rgb(223, 173, 81) ;
 }
 
 #content {
