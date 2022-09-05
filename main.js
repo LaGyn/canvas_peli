@@ -4,9 +4,11 @@ const ctx = canvas.getContext('2d');
 this.gridSize = 30;
 madonBody = [];
 ctx.fill();
+canvas.width = 800;
+canvas.height = 600;
 
 document.addEventListener('keydown', liiku)
-document.addEventListener('keydown', ohjaa)
+
 function checkSupported() {
     if (!canvas.getContext){
       alert("Selaimesi ei tue canvas-tagia!");
@@ -18,6 +20,8 @@ const mato = {
     y: 15,
     nopeusX: 5,
     nopeusY: 5,
+    nopeusx: -5,
+    nopeusy: -5,
     radius: 15,
     color: 'red',
     draw(){
@@ -29,41 +33,38 @@ const mato = {
         }
 }
 
-// Madon liikkuminen:
-/*
-function draw(){
-    //ctx.clearRect(0,0,canvas.width, canvas.height);
-    mato.draw();
-    mato.x += mato.nopeusX;
-    mato.y += mato.nopeusY;
-}*/
+// Madon liikkuminen://
   
 function liiku(event){
+    ctx.clearRect(0,0,canvas.width, canvas.height);
     mato.draw();
     if (event.keyCode == 39){ // Nuoli oikealle
         mato.x += mato.nopeusX;
     }
-
-}
-
-// Ohjaaminen:
-
-function ohjaa(event){
     if (event.keyCode == 37){ // Nuoli vasemmalle
-        nopeusX = -5;
-    }
-    if (event.keyCode == 39){ // Nuoli oikealle
-        nopeusX = 5;
+        mato.x += mato.nopeusx;
     }
     if (event.keyCode == 40){ // Nuoli alas
-        nopeusY = 5;
+        mato.y += mato.nopeusY;
     }
     if (event.keyCode == 38){ // Nuoli ylös
-        nopeusY = -5;
+        mato.y += mato.nopeusy;
     }
-    // Liikkumisrajoitukset:
-    
+    //Liikkumisrajoitukset:
+    if (mato.x >= 785){
+      mato.nopeusX = 0;
+    }
+    if (mato.x < 15){
+      mato.nopeusx = 0;
+    }
+    if (mato.y >= 585){
+      mato.nopeusY = 0;
+    }
+    if (mato.y < 15){
+      mato.nopeusy = 0;
+    }
 }
+
 function pelaa() {
     document.getElementById("pelinappi").style.display = "none";
     document.getElementById("aloitus").style.display = "none";
