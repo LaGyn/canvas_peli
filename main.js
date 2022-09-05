@@ -32,13 +32,14 @@ const mato = {
 // Madon liikkuminen:
 /*
 function draw(){
-    //ctx.clearRect(0,0,canvas.width, canvas.height);
+    
     mato.draw();
     mato.x += mato.nopeusX;
     mato.y += mato.nopeusY;
 }*/
   
 function liiku(event){
+    ctx.clearRect(0,0,canvas.width, canvas.height);
     mato.draw();
     if (event.keyCode == 39){ // Nuoli oikealle
         mato.x += mato.nopeusX;
