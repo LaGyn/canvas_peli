@@ -6,7 +6,7 @@ madonBody = [];
 ctx.fill();
 
 document.addEventListener('keydown', liiku)
-
+document.addEventListener('keydown', ohjaa)
 function checkSupported() {
     if (!canvas.getContext){
       alert("Selaimesi ei tue canvas-tagia!");
