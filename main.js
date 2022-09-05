@@ -8,7 +8,6 @@ document.addEventListener('keydown', liiku)
 
 function checkSupported() {
     if (!canvas.getContext){
-      ctx = canvas.getContext('2d');
       alert("Selaimesi ei tue canvas-tagia!");
     } 
   } 
