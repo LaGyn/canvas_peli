@@ -6,6 +6,7 @@ madonBody = [];
 ctx.fill();
 
 document.addEventListener('keydown', liiku)
+document.addEventListener('keydown', ohjaa)
 
 function checkSupported() {
     if (!canvas.getContext){
@@ -30,13 +31,6 @@ const mato = {
 }
 
 // Madon liikkuminen:
-/*
-function draw(){
-    
-    mato.draw();
-    mato.x += mato.nopeusX;
-    mato.y += mato.nopeusY;
-}*/
   
 function liiku(event){
     ctx.clearRect(0,0,canvas.width, canvas.height);
@@ -44,9 +38,22 @@ function liiku(event){
     if (event.keyCode == 39){ // Nuoli oikealle
         mato.x += mato.nopeusX;
     }
-
+    if (event.keyCode == 37){ // Nuoli vasemmalle
+        mato.x += mato.nopeusX;
+    }
+    if (event.keyCode == 40){ // Nuoli alas
+        mato.y += mato.nopeusY;
+    }
+    if (event.keyCode == 38){ // Nuoli ylös
+        mato.y += mato.nopeusY;
+    }
 }
 
+// Ohjaaminen:
+
+function ohjaa(event){
+    if (event.keyCode == )
+}
 function pelaa() {
     document.getElementById("pelinappi").style.display = "none";
     document.getElementById("aloitus").style.display = "none";
