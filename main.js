@@ -6,7 +6,6 @@ madonBody = [];
 ctx.fill();
 
 document.addEventListener('keydown', liiku)
-document.addEventListener('keydown', ohjaa)
 
 function checkSupported() {
     if (!canvas.getContext){
@@ -31,22 +30,20 @@ const mato = {
 }
 
 // Madon liikkuminen:
+/*
+function draw(){
+    //ctx.clearRect(0,0,canvas.width, canvas.height);
+    mato.draw();
+    mato.x += mato.nopeusX;
+    mato.y += mato.nopeusY;
+}*/
   
 function liiku(event){
-    ctx.clearRect(0,0,canvas.width, canvas.height);
     mato.draw();
     if (event.keyCode == 39){ // Nuoli oikealle
         mato.x += mato.nopeusX;
     }
-    if (event.keyCode == 37){ // Nuoli vasemmalle
-        mato.x += mato.nopeusX;
-    }
-    if (event.keyCode == 40){ // Nuoli alas
-        mato.y += mato.nopeusY;
-    }
-    if (event.keyCode == 38){ // Nuoli ylös
-        mato.y += mato.nopeusY;
-    }
+
 }
 
 // Ohjaaminen:
@@ -65,12 +62,13 @@ function ohjaa(event){
         nopeusY = -5;
     }
     // Liikkumisrajoitukset:
-    if ()
+    
 }
 function pelaa() {
     document.getElementById("pelinappi").style.display = "none";
     document.getElementById("aloitus").style.display = "none";
     document.getElementById("pisteruutu").style.display = "block";
+    document.getElementById("canvas").style.display = "block";
     luoRuokaPallo();
     mato.draw();
 }
