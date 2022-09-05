@@ -1,5 +1,5 @@
 const canvas = document.getElementById('canvas');
-let ctx = canvas.getContext('2d');
+let ctx;
 
 canvas.fillStyle = "orange";
 ctx.fill();
