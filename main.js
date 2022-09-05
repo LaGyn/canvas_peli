@@ -2,7 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 ctx.beginPath();
-ctx.arc(30,30, 30, 0, Math.PI * 2);
+ctx.arc(30,30, 15, 0, Math.PI * 2);
 ctx.fillStyle = 'red';
 ctx.fill();
 ctx.closePath();
