@@ -1,5 +1,5 @@
 const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+let ctx = canvas.getContext('2d');
 
 canvas.fillStyle = "orange";
 ctx.fill();
@@ -12,7 +12,7 @@ function checkSupported() {
       // Canvas is supported
     } else {
       // Canvas is not supported
-      alert("We're sorry, but your browser does not support the canvas tag. Please use any web browser other than Internet Explorer.");
+      alert("Selaimesi ei tue canvas-tagia!");
     }
   } */
 let raf;
@@ -53,4 +53,9 @@ function pelaa() {
     document.getElementById("pelinappi").style.display = "none";
     document.getElementById("aloitus").style.display = "none";
     mato.draw();
+}
+
+function peliOhi() {
+  document.getElementById("canvas").style.display = "none";
+  document.getElementById("lopetus").style.display = "block";
 }
