@@ -52,7 +52,18 @@ function liiku(event){
 // Ohjaaminen:
 
 function ohjaa(event){
-    if (event.keyCode == )
+    if (event.keyCode == 37){ // Nuoli vasemmalle
+        nopeusX = -1;
+    }
+    if (event.keyCode == 39){ // Nuoli oikealle
+        nopeusX = 1;
+    }
+    if (event.keyCode == 40){ // Nuoli alas
+        nopeusY = 1;
+    }
+    if (event.keyCode == 38){ // Nuoli ylös
+        nopeusY = -1;
+    }
 }
 function pelaa() {
     document.getElementById("pelinappi").style.display = "none";
