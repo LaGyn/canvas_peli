@@ -1,5 +1,7 @@
 body {
     background-color: rgb(100, 100, 100);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 canvas {
@@ -26,4 +28,10 @@ canvas {
 
 #pelinappi:hover {
     background:rgb(131, 95, 27) ;
+}
+
+#aloitus {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
 }
