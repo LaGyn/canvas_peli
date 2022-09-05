@@ -53,17 +53,19 @@ function liiku(event){
 
 function ohjaa(event){
     if (event.keyCode == 37){ // Nuoli vasemmalle
-        nopeusX = -1;
+        nopeusX = -5;
     }
     if (event.keyCode == 39){ // Nuoli oikealle
-        nopeusX = 1;
+        nopeusX = 5;
     }
     if (event.keyCode == 40){ // Nuoli alas
-        nopeusY = 1;
+        nopeusY = 5;
     }
     if (event.keyCode == 38){ // Nuoli ylös
-        nopeusY = -1;
+        nopeusY = -5;
     }
+    // Liikkumisrajoitukset:
+    if ()
 }
 function pelaa() {
     document.getElementById("pelinappi").style.display = "none";
