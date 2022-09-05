@@ -1,8 +1,11 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
+const mato = {
+    
+}
 ctx.beginPath();
-ctx.arc(30,30, 15, 0, Math.PI * 2);
+ctx.arc(15, 15, 15, 0, Math.PI * 2);
 ctx.fillStyle = 'red';
 ctx.fill();
 ctx.closePath();
@@ -17,11 +20,17 @@ function checkSupported() {
     }
   }
 
-
+function Position(position, speed){
+    this.position = position;
+    this.speed = speed;
+}
 
 // Madon liikkuminen:
 
 function move(){
+    let positionX = 15;
+    let positionY = 15;
+    let speed = 5;
 
 }
 
