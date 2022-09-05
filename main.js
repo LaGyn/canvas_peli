@@ -4,12 +4,19 @@ const ctx = canvas.getContext('2d');
 canvas.fillStyle = "orange";
 canvas.fill();
 
-function draw(){
+class Mato {
+    constructor({position, speed}){
+        this.position = position;
+        this.speed = speed;
+    }
+
+    draw(){
     ctx.beginPath();
     ctx.arc(15, 15, 15, 0, Math.PI * 2);
     ctx.fillStyle = 'red';
     ctx.fill();
     ctx.closePath();
+    }
 }
 
 
@@ -24,8 +31,7 @@ function checkSupported() {
   }
 
 function Position(position, speed){
-    this.position = position;
-    this.speed = speed;
+    
 }
 
 // Madon liikkuminen:
