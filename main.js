@@ -1,9 +1,9 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-const mato = {
-    
-}
+canvas.fillStyle = "orange";
+canvas.fill();
+
 ctx.beginPath();
 ctx.arc(15, 15, 15, 0, Math.PI * 2);
 ctx.fillStyle = 'red';

@@ -3,7 +3,8 @@ body {
 }
 
 canvas {
-    border: solid 4px rgb(6, 177, 0);
+    border: solid 10px rgb(5, 141, 0);
+    background:rgb(199, 145, 45) ;
 }
 
 #content {
@@ -16,4 +17,13 @@ canvas {
 
 #pelinappi {
     margin: 1em;
+    border: solid 8px rgb(5, 141, 0);
+    background:rgb(199, 145, 45) ;
+    width: 120px;
+    height: 60px;
+    font-size: 2em;
+}
+
+#pelinappi:hover {
+    background:rgb(131, 95, 27) ;
 }
