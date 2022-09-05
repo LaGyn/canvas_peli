@@ -4,11 +4,14 @@ const ctx = canvas.getContext('2d');
 canvas.fillStyle = "orange";
 canvas.fill();
 
-ctx.beginPath();
-ctx.arc(15, 15, 15, 0, Math.PI * 2);
-ctx.fillStyle = 'red';
-ctx.fill();
-ctx.closePath();
+function draw(){
+    ctx.beginPath();
+    ctx.arc(15, 15, 15, 0, Math.PI * 2);
+    ctx.fillStyle = 'red';
+    ctx.fill();
+    ctx.closePath();
+}
+
 
 function checkSupported() {
     if (canvas.getContext){
