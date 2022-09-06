@@ -3,7 +3,6 @@ const ctx = canvas.getContext('2d');
 
 this.gridSize = 30;
 const madonBody = [];
-//ctx.fill();
 canvas.width = 800;
 canvas.height = 600;
 
@@ -71,7 +70,7 @@ function pelaa() {
     document.getElementById("aloitus").style.display = "none";
     document.getElementById("pisteruutu").style.display = "block";
     document.getElementById("canvas").style.display = "block";
-    luoRuokaPallo();
+    //luoRuokaPallo();
     mato.draw();
 }
 
@@ -80,9 +79,9 @@ function peliOhi() {
   document.getElementById("lopetus").style.display = "block";
 }
 
-function luoRuokaPallo() {
+/*function luoRuokaPallo() {
   suggestedPoint = [Math.floor(Math.random()*(canvas.width/gridSize))*gridSize, Math.floor(Math.random()*(canvas.height/gridSize))*gridSize];
-  if (madonBody.some(onPiste)) {
+  if (matoBody.some(onPiste)) {
     luoRuokaPallo();
   } else {
     ctx.fillStyle = "rgb(20, 200, 10)";
@@ -91,12 +90,12 @@ function luoRuokaPallo() {
     ctx.fill();
     ctx.closePath();
   }
-}
+}:*/
 
-function onPiste(element, index, array) {
+/*function onPiste(element, index, array) {
   return (element[0] == suggestedPoint[0] && element[1] == suggestedPoint[1]);
 }
 
 function onSyonytItsensa() {
   return(element[0] == currentPosition['x'] && element[1] == currentPosition['y']);
-}
+}*/
