@@ -2,7 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 this.gridSize = 30;
-madonBody = [];
+matoBody = [];
 ctx.fill();
 canvas.width = 800;
 canvas.height = 600;
@@ -81,7 +81,7 @@ function peliOhi() {
 
 function luoRuokaPallo() {
   suggestedPoint = [Math.floor(Math.random()*(canvas.width/gridSize))*gridSize, Math.floor(Math.random()*(canvas.height/gridSize))*gridSize];
-  if (madonBody.some(onPiste)) {
+  if (matoBody.some(onPiste)) {
     luoRuokaPallo();
   } else {
     ctx.fillStyle = "rgb(20, 200, 10)";
