@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 
 this.gridSize = 30;
 const madonBody = [];
-ctx.fill();
+//ctx.fill();
 canvas.width = 800;
 canvas.height = 600;
 
