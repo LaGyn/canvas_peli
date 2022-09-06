@@ -2,13 +2,12 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 this.gridSize = 30;
-matoBody = [];
-ctx.fill();
+const madonBody = [];
 canvas.width = 800;
 canvas.height = 600;
 
 document.addEventListener('keydown', liiku)
-
+//setInterval(liiku,100)
 function checkSupported() {
     if (!canvas.getContext){
       alert("Selaimesi ei tue canvas-tagia!");
@@ -63,6 +62,7 @@ function liiku(event){
     if (mato.y < 15){
       mato.nopeusy = 0;
     }
+    madonBody.push(mato);
 }
 
 function pelaa() {
