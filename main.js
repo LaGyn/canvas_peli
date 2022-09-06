@@ -1,19 +1,79 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-this.gridSize = 30;
-const madonBody = [];
 canvas.width = 800;
 canvas.height = 600;
 
-document.addEventListener('keydown', liiku)
-//setInterval(liiku,100)
+let vari = 'red';
+this.gridSize = 30;
+
+const mato = [
+  {x: 15, y: 15},
+  {x: 30, y: 15},
+  {x: 45, y: 15},
+  {x: 60, y: 15},
+  {x: 75, y: 15}
+];
+
+//document.addEventListener('keydown', liiku)
+
 function checkSupported() {
     if (!canvas.getContext){
       alert("Selaimesi ei tue canvas-tagia!");
     } 
   } 
 
+// True if changing direction
+let changing_direction = false;
+// Horizontal velocity
+let dx = 10;
+// Vertical velocity
+let dy = 0;
+
+// Pelaa
+pelaa();
+document.addEventListener("keydown", vaihdaSuunta);
+
+function pelaa() {
+    document.getElementById('pelinappi').style.display = 'block';
+    document.getElementById('aloitus').style.display = 'none';
+    document.getElementById('pisteruutu').style.display = 'block';
+    document.getElementById('canvas').style.display = 'block';
+    if (peliOhi()) return;
+
+    changing_direction = false;
+    setTimeout(function onTick() {
+    clearCanvas();
+    liikuMato()
+    piirraMato();
+    // Call main again
+    pelaa();
+  }, 100)
+}
+
+function clearCanvas() {
+//  Select the colour to fill the drawing
+ctx.fillStyle = 'white';
+//  Select the colour for the border of the canvas
+ctx.strokestyle = 'black';
+// Draw a "filled" rectangle to cover the entire canvas
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+// Draw a "border" around the entire canvas
+ctx.strokeRect(0, 0, canvas.width, canvas.height);
+}
+
+function piirraMatoOsa(matoOsa) {   
+  ctx.beginPath();
+  ctx.arc(matoOsa.x, matoOsa.y, 15, 0, Math.PI * 2, true);
+  ctx.fillStyle = vari;
+  ctx.fill();
+  ctx.closePath();
+}
+
+function piirraMato() {
+  mato.forEach(piirraMatoOsa)
+  }
+/*
 const mato = {
     x: 15,
     y: 15,
@@ -30,11 +90,15 @@ const mato = {
         ctx.fill();
         ctx.closePath();
         }
-}
+}*/
 
 // Madon liikkuminen://
   
-function liiku(event){
+function liikuMato(event){
+  const head = {x: mato[0].x + dx, y: mato[0].y + dy};
+  mato.unshift(head);
+  mato.pop();
+  /*
     ctx.clearRect(0,0,canvas.width, canvas.height);
     mato.draw();
     if (event.keyCode == 39){ // Nuoli oikealle
@@ -62,21 +126,64 @@ function liiku(event){
     if (mato.y < 15){
       mato.nopeusy = 0;
     }
-    madonBody.push(mato);
+    madonBody.push(mato);*/
 }
 
-function pelaa() {
-    document.getElementById("pelinappi").style.display = "none";
-    document.getElementById("aloitus").style.display = "none";
-    document.getElementById("pisteruutu").style.display = "block";
-    document.getElementById("canvas").style.display = "block";
-    //luoRuokaPallo();
-    mato.draw();
+function vaihdaSuunta(event) {  
+  const LEFT_KEY = 37;
+  const RIGHT_KEY = 39;
+  const UP_KEY = 38;
+  const DOWN_KEY = 40;
+   // Prevent the snake from reversing
+  
+   if (changing_direction) return;
+   changing_direction = true;
+  const keyPressed = event.keyCode;
+  const goingUp = dy === -10;
+  const goingDown = dy === 10;
+  const goingRight = dx === 10;  
+  const goingLeft = dx === -10;
+
+  if (keyPressed === LEFT_KEY && !goingRight)
+  {    
+      dx = -10;
+      dy = 0;  
+  }
+
+  if (keyPressed === UP_KEY && !goingDown)
+  {    
+      dx = 0;
+      dy = -10;
+  }
+
+  if (keyPressed === RIGHT_KEY && !goingLeft)
+  {    
+      dx = 10;
+      dy = 0;
+  }
+
+  if (keyPressed === DOWN_KEY && !goingUp)
+  {    
+      dx = 0;
+      dy = 10;
+  }
 }
+
+
 
 function peliOhi() {
-  document.getElementById("canvas").style.display = "none";
-  document.getElementById("lopetus").style.display = "block";
+  for (let i = 4; i < mato.length; i++){    
+    if (mato[i].x === mato[0].x && mato[i].y === mato[0].y) 
+    return true
+  }
+  const hitLeftWall = mato[0].x < 0;  
+  const hitRightWall = mato[0].x > canvas.width - 10;
+  const hitToptWall = mato[0].y < 0;
+  const hitBottomWall = mato[0].y > canvas.height - 10;
+ 
+  return hitLeftWall ||  hitRightWall || hitToptWall || hitBottomWall
+  //document.getElementById("canvas").style.display = "none";
+  //document.getElementById("lopetus").style.display = "block";
 }
 
 /*function luoRuokaPallo() {
