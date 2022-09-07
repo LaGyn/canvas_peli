@@ -32,7 +32,7 @@ let dy = 0;
 // Pelaa
 /*pelaa(); */
 document.addEventListener("keydown", vaihdaSuunta);
-luoRuokaPallo();
+
 function pelaa() {
   checkSupported();
     document.getElementById('pelinappi').style.display = 'none';
@@ -46,7 +46,7 @@ function pelaa() {
     clearCanvas();
     liikuMato()
     piirraMato();
-    
+    luoRuokaPallo();
     pelaa();
   }, 200)
 }
