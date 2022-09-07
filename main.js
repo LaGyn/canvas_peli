@@ -6,6 +6,9 @@ let canvasBorder = 'rgb(5, 141, 0)';
 let vari = 'red';
 this.gridSize = 30;
 
+let ruokaX;
+let ruokaY;
+
 const mato = [
   { x: 255, y: 195 },
   { x: 225, y: 195 },
@@ -46,7 +49,7 @@ function pelaa() {
     clearCanvas();
     liikuMato()
     piirraMato();
-    luoRuokaPallo();
+    piirraRuoka();
     pelaa();
   }, 200)
 }
@@ -93,7 +96,12 @@ const mato = {
 function liikuMato(event){
   const head = {x: mato[0].x + dx, y: mato[0].y + dy};
   mato.unshift(head);
-  mato.pop();
+  if (mato[0].x === ruokaX && mato[0].y === ruokaY) {
+    luoKoordinaatit();
+  } else {
+    mato.pop();
+  }
+  
   /*
     ctx.clearRect(0,0,canvas.width, canvas.height);
     mato.draw();
@@ -180,7 +188,29 @@ function peliOhi() {
   //document.getElementById("lopetus").style.display = "block";
 }
 
-function luoRuokaPallo() {
+function luoKoordinaatit(min, maks) {
+  return Math.round((Math.random()*(maks-min)+min)/10)*10;
+}
+
+function RuokaSijainti() {
+  ruokaX = luoKoordinaatit(15, canvas.width -15);
+  ruokaY = luoKoordinaatit(15, canvas.height - 15)
+  snake.forEach(function onkoSyonytRuuan(osa) {
+    if (osa.x == ruokaX && osa.y == ruokaY) {
+      RuokaSijainti();
+    }
+  })
+}
+
+function piirraRuoka() {
+  ctx.fillStyle = "rgb(0, 168, 0)"
+  ctx.beginPath();
+    ctx.arc(ruokaX, ruokaY, 15, 0, Math.PI * 2, true);
+    ctx.fill();
+    ctx.closePath();
+}
+
+/*function luoRuokaPallo() {
   suggestedPoint = [Math.floor(Math.random()*(canvas.width/gridSize))*gridSize, Math.floor(Math.random()*(canvas.height/gridSize))*gridSize];
   if (mato.some(onPiste)) {
     luoRuokaPallo();
@@ -199,4 +229,4 @@ function onPiste(element, index, array) {
 
 function onSyonytItsensa() {
   return(element[0] == currentPosition['x'] && element[1] == currentPosition['y']);
-}
+} */
