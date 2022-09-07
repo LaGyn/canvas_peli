@@ -4,4 +4,4 @@
 4. Rajat, törmäys -Laura
 5. Madon kasvu; syöminen -Juho
 6. Alkunäyttö, loppunäyttö; -Juho
-7. Pisteenlasku -kumpi ehtii, alustavasti Laura
+7. Pisteenlasku -Laura
