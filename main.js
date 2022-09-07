@@ -35,7 +35,7 @@ let dy = 0;
 // Pelaa
 /*pelaa(); */
 document.addEventListener("keydown", vaihdaSuunta);
-
+luoRuokaPallo();
 function pelaa() {
   checkSupported();
     document.getElementById('pelinappi').style.display = 'none';
@@ -49,7 +49,7 @@ function pelaa() {
     clearCanvas();
     liikuMato()
     piirraMato();
-    luoRuokaPallo();
+    
     pelaa();
   }, 200)
 }
@@ -185,7 +185,7 @@ function peliOhi() {
 
 function luoRuokaPallo() {
   suggestedPoint = [Math.floor(Math.random()*(canvas.width/gridSize))*gridSize, Math.floor(Math.random()*(canvas.height/gridSize))*gridSize];
-  if (matoBody.some(onPiste)) {
+  if (mato.some(onPiste)) {
     luoRuokaPallo();
   } else {
     ctx.fillStyle = "rgb(20, 200, 10)";
