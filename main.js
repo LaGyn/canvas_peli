@@ -10,10 +10,10 @@ let ruokaX;
 let ruokaY;
 
 const mato = [
-  { x: 255, y: 195 },
-  { x: 225, y: 195 },
-  { x: 195, y: 195 },
-  { x: 165, y: 195 },
+  { x: 270, y: 210 },
+  { x: 240, y: 210 },
+  { x: 210, y: 210 },
+  { x: 180, y: 210 },
 ];
 
 //document.addEventListener('keydown', liiku)
@@ -67,7 +67,7 @@ ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
 function piirraMatoOsa(matoOsa) {   
   ctx.beginPath();
-  ctx.arc(matoOsa.x, matoOsa.y, 15, 0, Math.PI * 2, true);
+  ctx.arc(matoOsa.x - 15, matoOsa.y - 15, 15, 0, Math.PI * 2, true);
   ctx.fillStyle = vari;
   ctx.fill();
   ctx.closePath();
@@ -193,12 +193,12 @@ function peliOhi() {
 }
 
 function luoKoordinaatit(min, max) {
-  return Math.round((Math.random() * (max-min) + min) / 10) * 10;
+  return Math.round((Math.random() * (max-min) + min) / 30) * 30;
 }
 
 function RuokaSijainti() {
-  ruokaX = luoKoordinaatit(0, canvas.width -10);
-  ruokaY = luoKoordinaatit(0, canvas.height -10)
+  ruokaX = luoKoordinaatit(15, canvas.width -15);
+  ruokaY = luoKoordinaatit(15, canvas.height -15)
   mato.forEach(function onkoSyonytRuuan(osa) {
     if (osa.x == ruokaX && osa.y == ruokaY) {
       RuokaSijainti();
@@ -209,7 +209,7 @@ function RuokaSijainti() {
 function piirraRuoka() {
   ctx.fillStyle = "rgb(0, 168, 0)"
   ctx.beginPath();
-    ctx.arc(ruokaX, ruokaY, 15, 0, Math.PI * 2, true);
+    ctx.arc(ruokaX - 15, ruokaY - 15, 15, 0, Math.PI * 2, true);
     ctx.fill();
     ctx.closePath();
 }
