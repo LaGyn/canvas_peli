@@ -8,13 +8,17 @@ this.gridSize = 30;
 
 let ruokaX;
 let ruokaY;
+let pisteet = 0;
 
+// Mato osien sijainnit arrayssa:
 const mato = [
   { x: 270, y: 210 },
   { x: 240, y: 210 },
   { x: 210, y: 210 },
   { x: 180, y: 210 },
 ];
+
+// Selaintuen tutkiminen: 
 
 function checkSupported() {
     if (!canvas.getContext){
@@ -25,14 +29,15 @@ function checkSupported() {
 
 // Jos suuntaa vaihdetaan, niin on true
 let suunnanVaihto = false;
-// Horizontal velocity
-let dx = 30;
-// Vertical velocity
+// Horisontaalinen nopeus:
+let dx = 30; // Mato lähtee alussa oikealle
+// Vertikaalinen nopeus:
 let dy = 0;
 
-// Pelaa
-/*pelaa(); */
+//Lisätään napeille eventlistener:
 document.addEventListener("keydown", vaihdaSuunta);
+
+// Pelin aloitus kun nappia painetaan:
 
 function pelaa() {
   checkSupported();
@@ -41,21 +46,24 @@ function pelaa() {
     document.getElementById('pisteruutu').style.display = 'block';
     document.getElementById('canvas').style.display = 'block';
     main();
-    RuokaSijainti();
+    RuokaSijainti(); // Tulostetaan ruoka paikoilleen
 }
+
+// Funktioiden kutsunta mainissa, ajastin:
 
 function main() {
   if (peliOhi()) return;
-
     suunnanVaihto = false;
     setTimeout(function onTick() {
     clearCanvas();
     liikuMato()
     piirraMato();
     piirraRuoka();
-    main();
-  }, 200)
+    main(); // Funktio kutsuu itseään niin kauan kunnes peli on ohi
+  }, 200) // Madon liikkumisnopeus
 }
+
+// Tyhjennetään canvas:
 
 function clearCanvas() {
 ctx.fillStyle = canvasBgColor;
@@ -64,6 +72,8 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.strokeRect(0, 0, canvas.width, canvas.height);
 }
 
+// Piirretään matopallo:
+
 function piirraMatoOsa(matoOsa) {   
   ctx.beginPath();
   ctx.arc(matoOsa.x - 15, matoOsa.y - 15, 15, 0, Math.PI * 2, true);
@@ -71,6 +81,8 @@ function piirraMatoOsa(matoOsa) {
   ctx.fill();
   ctx.closePath();
 }
+
+// Piirretään kokonainen mato:
 
 function piirraMato() {
   mato.forEach(piirraMatoOsa)
@@ -83,6 +95,7 @@ function liikuMato(event){
   mato.unshift(head);
   if (mato[0].x === ruokaX && mato[0].y === ruokaY) {
     RuokaSijainti();
+    laskePisteet();
   } else {
     mato.pop();
   }
@@ -95,10 +108,9 @@ function vaihdaSuunta(event) {
   const oikeaNappi = 39;
   const ylosNappi = 38;
   const alasNappi = 40;
-   // Prevent the snake from reversing
   
-   if (suunnanVaihto) return;
-   suunnanVaihto = true;
+  if (suunnanVaihto) return;
+  suunnanVaihto = true;
   const nappiPainettu = event.keyCode;
   const ylos = dy === -30;
   const alas = dy === 30;
@@ -130,6 +142,8 @@ function vaihdaSuunta(event) {
   }
 }
 
+// Pelin loppuminen:
+
 function peliOhi() {
   for (let i = 4; i < mato.length; i++){    
     if (mato[i].x === mato[0].x && mato[i].y === mato[0].y) 
@@ -145,19 +159,25 @@ function peliOhi() {
   //document.getElementById("lopetus").style.display = "block";
 }
 
+// Ruualle arvotaan koordinaatit:
+
 function luoKoordinaatit(min, max) {
   return Math.round((Math.random() * (max-min) + min) / 30) * 30;
 }
 
+// Ruoka tulostetaan uudelle paikalle, mikäli mato on tavoittanut ruuan:
+
 function RuokaSijainti() {
-  ruokaX = luoKoordinaatit(15, canvas.width -15);
+  ruokaX = luoKoordinaatit(15, canvas.width -15); // parametreina min ja max arvot, jotta ruoka ei tulostu osittain rajojen ulkopuolelle
   ruokaY = luoKoordinaatit(15, canvas.height -15)
   mato.forEach(function onkoSyonytRuuan(osa) {
-    if (osa.x == ruokaX && osa.y == ruokaY) {
+    if (osa.x == ruokaX && osa.y == ruokaY) { // Jos madon osa on ruokasijainnissa, on ruoka syöty, mato kasvaa ja tulostetaan uusi ruokasijainti
       RuokaSijainti();
     }
   })
 }
+
+// Ruokapallon piirtäminen:
 
 function piirraRuoka() {
   ctx.fillStyle = "rgb(0, 168, 0)"
@@ -167,6 +187,10 @@ function piirraRuoka() {
     ctx.closePath();
 }
 
+function laskePisteet(){
+  pisteet += 10;
+  document.getElementById('pisteetNyt').innerHTML = pisteet;
+}
 /*function luoRuokaPallo() {
   suggestedPoint = [Math.floor(Math.random()*(canvas.width/gridSize))*gridSize, Math.floor(Math.random()*(canvas.height/gridSize))*gridSize];
   if (mato.some(onPiste)) {
