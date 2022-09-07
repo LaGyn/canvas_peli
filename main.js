@@ -11,9 +11,6 @@ const mato = [
   { x: 225, y: 195 },
   { x: 195, y: 195 },
   { x: 165, y: 195 },
-  { x: 135, y: 195 },
-  { x: 105, y: 195 },
-  { x: 85, y: 195 }
 ];
 
 //document.addEventListener('keydown', liiku)
@@ -185,7 +182,7 @@ function peliOhi() {
 
 function luoRuokaPallo() {
   suggestedPoint = [Math.floor(Math.random()*(canvas.width/gridSize))*gridSize, Math.floor(Math.random()*(canvas.height/gridSize))*gridSize];
-  if (matoBody.some(onPiste)) {
+  if (mato.some(onPiste)) {
     luoRuokaPallo();
   } else {
     ctx.fillStyle = "rgb(20, 200, 10)";
