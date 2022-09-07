@@ -16,8 +16,6 @@ const mato = [
   { x: 180, y: 210 },
 ];
 
-//document.addEventListener('keydown', liiku)
-
 function checkSupported() {
     if (!canvas.getContext){
       alert("Selaimesi ei tue canvas-tagia!");
@@ -25,7 +23,7 @@ function checkSupported() {
     } 
   } 
 
-// True if changing direction
+// Jos suuntaa vaihdetaan, niin on true
 let suunnanVaihto = false;
 // Horizontal velocity
 let dx = 30;
@@ -35,6 +33,7 @@ let dy = 0;
 // Pelaa
 /*pelaa(); */
 document.addEventListener("keydown", vaihdaSuunta);
+
 function pelaa() {
   checkSupported();
     document.getElementById('pelinappi').style.display = 'none';
@@ -76,24 +75,6 @@ function piirraMatoOsa(matoOsa) {
 function piirraMato() {
   mato.forEach(piirraMatoOsa)
 }
-/*
-const mato = {
-    x: 15,
-    y: 15,
-    nopeusX: 5,
-    nopeusY: 5,
-    nopeusx: -5,
-    nopeusy: -5,
-    radius: 15,
-    color: 'red',
-    draw(){
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-        ctx.closePath();
-        }
-}*/
 
 // Madon liikkuminen://
   
@@ -105,37 +86,9 @@ function liikuMato(event){
   } else {
     mato.pop();
   }
-  
-  /*
-    ctx.clearRect(0,0,canvas.width, canvas.height);
-    mato.draw();
-    if (event.keyCode == 39){ // Nuoli oikealle
-        mato.x += mato.nopeusX;
-    }
-    if (event.keyCode == 37){ // Nuoli vasemmalle
-        mato.x += mato.nopeusx;
-    }
-    if (event.keyCode == 40){ // Nuoli alas
-        mato.y += mato.nopeusY;
-    }
-    if (event.keyCode == 38){ // Nuoli ylös
-        mato.y += mato.nopeusy;
-    }
-    //Liikkumisrajoitukset:
-    if (mato.x >= 785){
-      mato.nopeusX = 0;
-    }
-    if (mato.x < 15){
-      mato.nopeusx = 0;
-    }
-    if (mato.y >= 585){
-      mato.nopeusY = 0;
-    }
-    if (mato.y < 15){
-      mato.nopeusy = 0;
-    }
-    madonBody.push(mato);*/
 }
+
+// Suunnanvaihto:
 
 function vaihdaSuunta(event) {  
   const vasenNappi = 37;
