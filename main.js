@@ -93,7 +93,7 @@ function piirraMato() {
 function liikuMato(event){
   const head = {x: mato[0].x + dx, y: mato[0].y + dy};
   mato.unshift(head);
-  if (mato[0].x === ruokaX && mato[0].y === ruokaY) { // Jos madon pään sijainti on sama kuin ruuan, kutsutaan ruokasijainti() ja lasketaan pisteet
+  if (mato[0].x === ruokaX && mato[0].y === ruokaY) { // Jos madon pään sijainti on sama kuin ruuan, ruokapallosta tulee uusi pää. Lisäksi kutsutaan ruokasijainti() ja lasketaan pisteet
     RuokaSijainti();
     laskePisteet();
   } else {
