@@ -42,7 +42,7 @@ function pelaa() {
     document.getElementById('pisteruutu').style.display = 'block';
     document.getElementById('canvas').style.display = 'block';
     main();
-    luoKoordinaatit();
+    RuokaSijainti();
 }
 
 function main() {
@@ -54,7 +54,7 @@ function main() {
     liikuMato()
     piirraMato();
     piirraRuoka();
-    pelaa();
+    main();
   }, 200)
 }
 
@@ -101,7 +101,7 @@ function liikuMato(event){
   const head = {x: mato[0].x + dx, y: mato[0].y + dy};
   mato.unshift(head);
   if (mato[0].x === ruokaX && mato[0].y === ruokaY) {
-    luoKoordinaatit();
+    RuokaSijainti();
   } else {
     mato.pop();
   }
@@ -192,14 +192,14 @@ function peliOhi() {
   //document.getElementById("lopetus").style.display = "block";
 }
 
-function luoKoordinaatit(min, maks) {
-  return Math.round((Math.random()*(maks-min)+min)/10)*10;
+function luoKoordinaatit(min, max) {
+  return Math.round((Math.random() * (max-min) + min) / 10) * 10;
 }
 
 function RuokaSijainti() {
   ruokaX = luoKoordinaatit(0, canvas.width -10);
   ruokaY = luoKoordinaatit(0, canvas.height -10)
-  snake.forEach(function onkoSyonytRuuan(osa) {
+  mato.forEach(function onkoSyonytRuuan(osa) {
     if (osa.x == ruokaX && osa.y == ruokaY) {
       RuokaSijainti();
     }
