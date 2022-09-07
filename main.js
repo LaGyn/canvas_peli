@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-let canvasBgColor = 'rgb(110, 231, 80)';
+let canvasBgColor = 'rgb(169, 214, 93) ';
 let canvasBorder = 'rgb(5, 141, 0)';
 let vari = 'red';
 this.gridSize = 30;
@@ -11,9 +11,6 @@ const mato = [
   { x: 225, y: 195 },
   { x: 195, y: 195 },
   { x: 165, y: 195 },
-  { x: 135, y: 195 },
-  { x: 105, y: 195 },
-  { x: 85, y: 195 }
 ];
 
 //document.addEventListener('keydown', liiku)
