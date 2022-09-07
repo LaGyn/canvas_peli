@@ -35,14 +35,18 @@ let dy = 0;
 // Pelaa
 /*pelaa(); */
 document.addEventListener("keydown", vaihdaSuunta);
-
 function pelaa() {
   checkSupported();
     document.getElementById('pelinappi').style.display = 'none';
     document.getElementById('aloitus').style.display = 'none';
     document.getElementById('pisteruutu').style.display = 'block';
     document.getElementById('canvas').style.display = 'block';
-    if (peliOhi()) return;
+    main();
+    luoKoordinaatit();
+}
+
+function main() {
+  if (peliOhi()) return;
 
     suunnanVaihto = false;
     setTimeout(function onTick() {
