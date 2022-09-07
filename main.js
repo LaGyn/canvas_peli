@@ -122,7 +122,7 @@ function vaihdaSuunta(event) {
   const oikealle = dx === 30;
   const vasemmalle = dx === -30;
 
-  if (nappiPainettu === vasenNappi && !oikealle) {
+  if (nappiPainettu === vasenNappi && !oikealle) { // Mato ei voi mennä vastakkaiseen suuntaan (syödä itseään)!
     dx = -30;
     dy = 0;
   }
