@@ -3,7 +3,8 @@ const ctx = canvas.getContext('2d');
 
 canvas.width = 800;
 canvas.height = 600;
-
+let canvasBgColor = 'rgb(223, 173, 81)';
+let canvasBorder = 'rgb(5, 141, 0)';
 let vari = 'red';
 this.gridSize = 30;
 
@@ -52,13 +53,9 @@ function pelaa() {
 }
 
 function clearCanvas() {
-//  Select the colour to fill the drawing
-ctx.fillStyle = 'white';
-//  Select the colour for the border of the canvas
-ctx.strokestyle = 'black';
-// Draw a "filled" rectangle to cover the entire canvas
+ctx.fillStyle = canvasBgColor;
+ctx.strokestyle = canvasBorder;
 ctx.fillRect(0, 0, canvas.width, canvas.height);
-// Draw a "border" around the entire canvas
 ctx.strokeRect(0, 0, canvas.width, canvas.height);
 }
 
