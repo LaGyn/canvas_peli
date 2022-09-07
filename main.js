@@ -1,19 +1,19 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-canvas.width = 800;
-canvas.height = 600;
-let canvasBgColor = 'rgb(223, 173, 81)';
+let canvasBgColor = 'rgb(233, 182, 86)';
 let canvasBorder = 'rgb(5, 141, 0)';
 let vari = 'red';
 this.gridSize = 30;
 
 const mato = [
-  {x: 15, y: 15},
-  {x: 30, y: 15},
-  {x: 45, y: 15},
-  {x: 60, y: 15},
-  {x: 75, y: 15}
+  { x: 255, y: 195 },
+  { x: 225, y: 195 },
+  { x: 195, y: 195 },
+  { x: 165, y: 195 },
+  { x: 135, y: 195 },
+  { x: 105, y: 195 },
+  { x: 85, y: 195 }
 ];
 
 //document.addEventListener('keydown', liiku)
@@ -21,13 +21,14 @@ const mato = [
 function checkSupported() {
     if (!canvas.getContext){
       alert("Selaimesi ei tue canvas-tagia!");
+      return;
     } 
   } 
 
 // True if changing direction
 let suunnanVaihto = false;
 // Horizontal velocity
-let dx = 10;
+let dx = 30;
 // Vertical velocity
 let dy = 0;
 
@@ -36,6 +37,7 @@ let dy = 0;
 document.addEventListener("keydown", vaihdaSuunta);
 
 function pelaa() {
+  checkSupported();
     document.getElementById('pelinappi').style.display = 'none';
     document.getElementById('aloitus').style.display = 'none';
     document.getElementById('pisteruutu').style.display = 'block';
@@ -49,7 +51,7 @@ function pelaa() {
     piirraMato();
     luoRuokaPallo();
     pelaa();
-  }, 100)
+  }, 200)
 }
 
 function clearCanvas() {
@@ -136,33 +138,33 @@ function vaihdaSuunta(event) {
    if (suunnanVaihto) return;
    suunnanVaihto = true;
   const nappiPainettu = event.keyCode;
-  const ylos = dy === -10;
-  const alas = dy === 10;
-  const oikealle = dx === 10;  
-  const vasemmalle = dx === -10;
+  const ylos = dy === -30;
+  const alas = dy === 30;
+  const oikealle = dx === 30;  
+  const vasemmalle = dx === -30;
 
   if (nappiPainettu === vasenNappi && !oikealle)
   {    
-      dx = -10;
+      dx = -30;
       dy = 0;  
   }
 
   if (nappiPainettu === ylosNappi && !alas)
   {    
       dx = 0;
-      dy = -10;
+      dy = -30;
   }
 
   if (nappiPainettu === oikeaNappi && !vasemmalle)
   {    
-      dx = 10;
+      dx = 30;
       dy = 0;
   }
 
   if (nappiPainettu === alasNappi && !ylos)
   {    
       dx = 0;
-      dy = 10;
+      dy = 30;
   }
 }
 
