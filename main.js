@@ -187,6 +187,8 @@ function piirraRuoka() {
     ctx.closePath();
 }
 
+// Lasketaan pisteet:
+
 function laskePisteet(){
   pisteet += 10;
   document.getElementById('pisteetNyt').innerHTML = pisteet;
