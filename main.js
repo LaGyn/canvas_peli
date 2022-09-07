@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-let canvasBgColor = 'rgb(110, 231, 80)';
+let canvasBgColor = 'rgb(169, 214, 93) ';
 let canvasBorder = 'rgb(5, 141, 0)';
 let vari = 'red';
 this.gridSize = 30;
