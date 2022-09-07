@@ -197,8 +197,8 @@ function luoKoordinaatit(min, maks) {
 }
 
 function RuokaSijainti() {
-  ruokaX = luoKoordinaatit(15, canvas.width -15);
-  ruokaY = luoKoordinaatit(15, canvas.height - 15)
+  ruokaX = luoKoordinaatit(0, canvas.width -10);
+  ruokaY = luoKoordinaatit(0, canvas.height -10)
   snake.forEach(function onkoSyonytRuuan(osa) {
     if (osa.x == ruokaX && osa.y == ruokaY) {
       RuokaSijainti();
