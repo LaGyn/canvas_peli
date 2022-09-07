@@ -33,7 +33,7 @@ let dx = 30;
 let dy = 0;
 
 // Pelaa
-pelaa();
+/*pelaa(); */
 document.addEventListener("keydown", vaihdaSuunta);
 
 function pelaa() {
