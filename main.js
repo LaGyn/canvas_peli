@@ -49,7 +49,7 @@ function pelaa() {
     clearCanvas();
     liikuMato()
     piirraMato();
-    // Call main again
+    luoRuokaPallo();
     pelaa();
   }, 200)
 }
@@ -71,7 +71,7 @@ function piirraMatoOsa(matoOsa) {
 
 function piirraMato() {
   mato.forEach(piirraMatoOsa)
-  }
+}
 /*
 const mato = {
     x: 15,
@@ -129,63 +129,61 @@ function liikuMato(event){
 }
 
 function vaihdaSuunta(event) {  
-  const LEFT_KEY = 37;
-  const RIGHT_KEY = 39;
-  const UP_KEY = 38;
-  const DOWN_KEY = 40;
+  const vasenNappi = 37;
+  const oikeaNappi = 39;
+  const ylosNappi = 38;
+  const alasNappi = 40;
    // Prevent the snake from reversing
   
    if (suunnanVaihto) return;
    suunnanVaihto = true;
-  const keyPressed = event.keyCode;
-  const goingUp = dy === -30;
-  const goingDown = dy === 30;
-  const goingRight = dx === 30;  
-  const goingLeft = dx === -30;
+  const nappiPainettu = event.keyCode;
+  const ylos = dy === -30;
+  const alas = dy === 30;
+  const oikealle = dx === 30;  
+  const vasemmalle = dx === -30;
 
-  if (keyPressed === LEFT_KEY && !goingRight)
+  if (nappiPainettu === vasenNappi && !oikealle)
   {    
       dx = -30;
       dy = 0;  
   }
 
-  if (keyPressed === UP_KEY && !goingDown)
+  if (nappiPainettu === ylosNappi && !alas)
   {    
       dx = 0;
       dy = -30;
   }
 
-  if (keyPressed === RIGHT_KEY && !goingLeft)
+  if (nappiPainettu === oikeaNappi && !vasemmalle)
   {    
       dx = 30;
       dy = 0;
   }
 
-  if (keyPressed === DOWN_KEY && !goingUp)
+  if (nappiPainettu === alasNappi && !ylos)
   {    
       dx = 0;
       dy = 30;
   }
 }
 
-
-
 function peliOhi() {
   for (let i = 4; i < mato.length; i++){    
     if (mato[i].x === mato[0].x && mato[i].y === mato[0].y) 
-    return true
+    return true;
   }
-  const hitLeftWall = mato[0].x < 0;  
-  const hitRightWall = mato[0].x > canvas.width - 10;
-  const hitToptWall = mato[0].y < 0;
-  const hitBottomWall = mato[0].y > canvas.height - 10;
+  const vasenTormays = mato[0].x < 0;  
+  const oikeaTormays = mato[0].x > canvas.width - 10;
+  const ylaTormays = mato[0].y < 0;
+  const alaTormays = mato[0].y > canvas.height - 10;
  
-  return hitLeftWall ||  hitRightWall || hitToptWall || hitBottomWall
+  return vasenTormays ||  oikeaTormays || ylaTormays || alaTormays;
   //document.getElementById("canvas").style.display = "none";
   //document.getElementById("lopetus").style.display = "block";
 }
 
-/*function luoRuokaPallo() {
+function luoRuokaPallo() {
   suggestedPoint = [Math.floor(Math.random()*(canvas.width/gridSize))*gridSize, Math.floor(Math.random()*(canvas.height/gridSize))*gridSize];
   if (matoBody.some(onPiste)) {
     luoRuokaPallo();
@@ -196,12 +194,12 @@ function peliOhi() {
     ctx.fill();
     ctx.closePath();
   }
-}:*/
+}
 
-/*function onPiste(element, index, array) {
+function onPiste(element, index, array) {
   return (element[0] == suggestedPoint[0] && element[1] == suggestedPoint[1]);
 }
 
 function onSyonytItsensa() {
   return(element[0] == currentPosition['x'] && element[1] == currentPosition['y']);
-}*/
+}
