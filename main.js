@@ -25,7 +25,7 @@ function checkSupported() {
   } 
 
 // True if changing direction
-let changing_direction = false;
+let suunnanVaihto = false;
 // Horizontal velocity
 let dx = 10;
 // Vertical velocity
@@ -42,7 +42,7 @@ function pelaa() {
     document.getElementById('canvas').style.display = 'block';
     if (peliOhi()) return;
 
-    changing_direction = false;
+    suunnanVaihto = false;
     setTimeout(function onTick() {
     clearCanvas();
     liikuMato()
@@ -133,8 +133,8 @@ function vaihdaSuunta(event) {
   const DOWN_KEY = 40;
    // Prevent the snake from reversing
   
-   if (changing_direction) return;
-   changing_direction = true;
+   if (suunnanVaihto) return;
+   suunnanVaihto = true;
   const keyPressed = event.keyCode;
   const goingUp = dy === -10;
   const goingDown = dy === 10;
