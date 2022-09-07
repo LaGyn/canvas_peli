@@ -114,7 +114,7 @@ function vaihdaSuunta(event) {
   const ylosNappi = 38;
   const alasNappi = 40;
 
-  if (suunnanVaihto) return;
+  if (suunnanVaihto) return; // Vain yksi suunnavaihto yhtä päivitystä kohden
   suunnanVaihto = true;
   const nappiPainettu = event.keyCode;
   const ylos = dy === -30;
