@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-let canvasBgColor = 'rgb(233, 182, 86)';
+let canvasBgColor = 'rgb(110, 231, 80)';
 let canvasBorder = 'rgb(5, 141, 0)';
 let vari = 'red';
 this.gridSize = 30;
@@ -33,7 +33,7 @@ let dx = 30;
 let dy = 0;
 
 // Pelaa
-//pelaa();
+/*pelaa(); */
 document.addEventListener("keydown", vaihdaSuunta);
 
 function pelaa() {
