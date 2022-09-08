@@ -3,7 +3,8 @@ const ctx = canvas.getContext('2d');
 
 let canvasBgColor = 'rgb(169, 214, 93) ';
 let canvasBorder = 'rgb(5, 141, 0)';
-let vari = 'red';
+let colors = ['Tomato', 'Orange', 'MediumSeaGreen', 'Violet'];
+let j = 0;
 this.gridSize = 30;
 
 let ruokaX;
@@ -82,9 +83,13 @@ function clearCanvas() {
 function piirraMatoOsa(matoOsa) {
   ctx.beginPath();
   ctx.arc(matoOsa.x - 15, matoOsa.y - 15, 15, 0, Math.PI * 2, true);
-  ctx.fillStyle = vari;
+  ctx.fillStyle = colors[j];
   ctx.fill();
   ctx.closePath();
+  j++;
+  if (j == 4){
+    j = 0;
+  }
 }
 
 // Piirretään kokonainen mato:
