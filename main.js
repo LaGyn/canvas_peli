@@ -3,7 +3,8 @@ const ctx = canvas.getContext('2d');
 
 let canvasBgColor = 'rgb(169, 214, 93) ';
 let canvasBorder = 'rgb(5, 141, 0)';
-let vari = 'red';
+let colors = ['Tomato', 'Orange', 'MediumSeaGreen', 'Violet'];
+let j = 0;
 this.gridSize = 30;
 
 let ruokaX;
