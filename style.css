@@ -29,7 +29,7 @@ canvas {
 }
 
 #pelinappi:hover {
-    background:rgb(122, 155, 67)  ;
+    background:rgb(122, 155, 67);
 }
 
 #aloitus {
@@ -59,4 +59,18 @@ h1 {
 
 #lopetus {
     text-align: center;
+}
+
+#pelaaUudelleen {
+    margin: 1em;
+    border: solid 8px rgb(5, 141, 0);
+    background:rgb(169, 214, 93)  ;
+    width: 260px;
+    height: 60px;
+    font-size: 2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#pelaaUudelleen:hover {
+    background:rgb(122, 155, 67);
 }
