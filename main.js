@@ -85,6 +85,10 @@ function piirraMatoOsa(matoOsa) {
   ctx.fillStyle = colors[j];
   ctx.fill();
   ctx.closePath();
+  j++;
+  if (j == 4){
+    j = 0;
+  }
 }
 
 // Piirretään kokonainen mato:
