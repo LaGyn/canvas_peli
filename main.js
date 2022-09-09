@@ -54,10 +54,12 @@ function pelaa() {
 
 function main() {
   if (peliOhi()) {
+    havioAani();
     document.getElementById("canvas").style.display = "none";
     document.getElementById("pisteruutu").style.display = "none";
     document.getElementById("lopetus").style.display = "block";
     document.getElementById("pisteetLopussa").innerHTML = pisteet;
+    return;
   }
   suunnanVaihto = false;
   setTimeout(function onTick() {
@@ -106,6 +108,7 @@ function liikuMato(event) {
   if (mato[0].x === ruokaX && mato[0].y === ruokaY) { // Jos madon pään sijainti on sama kuin ruuan, ruokapallosta tulee uusi pää. Lisäksi kutsutaan ruokasijainti() ja lasketaan pisteet
     RuokaSijainti();
     laskePisteet();
+    syontiAani(); 
   } else {
     mato.pop();
   }
@@ -196,4 +199,16 @@ function piirraRuoka() {
 function laskePisteet() {
   pisteet += 10;
   document.getElementById('pisteetNyt').innerHTML = pisteet;
+}
+
+function syontiAani() {
+  const syonti = new Audio("sounds/Eat.wav");
+  syonti.loop = false;
+  syonti.play();
+}
+
+function havioAani() {
+  const havio = new Audio("sounds/GameOver.wav");
+  havio.loop = false;
+  havio.play();
 }
