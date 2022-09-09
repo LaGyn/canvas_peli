@@ -90,6 +90,7 @@ function piirraMatoOsa(matoOsa) {
   if (j == 4){
     j = 0;
   }
+  
 }
 
 // Piirretään kokonainen mato:
