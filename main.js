@@ -82,7 +82,7 @@ function clearCanvas() {
 function piirraMatoOsa(matoOsa) {
   ctx.beginPath();
   ctx.arc(matoOsa.x - 15, matoOsa.y - 15, 15, 0, Math.PI * 2, true);
-  ctx.fillStyle = vari;
+  ctx.fillStyle = colors[j];
   ctx.fill();
   ctx.closePath();
 }
